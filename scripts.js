@@ -21,7 +21,7 @@ let playerWinCount = 0;
 let computerWinCount = 0;
 
 //prompt user for rock paper or scissors
-const playerSelection = prompt("Enter rock paper or scissors!");
+//const playerSelection = prompt("Enter rock paper or scissors!");
 
 /*
 generate a new computer selection at the start of each round

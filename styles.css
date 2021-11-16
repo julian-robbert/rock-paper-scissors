@@ -1,0 +1,42 @@
+div{
+    border: 1px solid black;
+}
+
+body{
+    margin: 0;
+    padding: 0 20%;
+    background-color: #f1faee;
+}
+
+#winCounter{
+    display:flex;
+}
+
+#counterTitleContainer{
+    display: flex;
+}
+
+#counterContainer{
+    display: flex;
+}
+
+#header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family:'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #a8dadc;
+
+}
+
+#buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button{
+    width: 200px;
+    height: 200px;
+}
