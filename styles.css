@@ -3,8 +3,7 @@ div{
 
 body{
     margin: 0;
-    padding: 0 20%;
-    background-color: #f1faee;
+    background-color: #cce6f4;
     font-family:'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -17,7 +16,6 @@ img{
     max-width: 200px;
     max-height: 200px;
     display: flex;
-    border: 3px solid #d88c9a;
 }
 
 .button:hover{
@@ -37,6 +35,7 @@ img{
 #counterTitleContainer, #buttonTitleContainer{
     display: flex;
     align-items: center;
+    padding: 0 7.5%;
 }
 
 #selectionContainer{
@@ -50,14 +49,16 @@ img{
     padding: 25px;
 }
 
+#selectionContainer, #winCounter{
+    background-color: #edbbb4;
+}
+
 #header{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: #a8dadc;
-
 }
 
 #buttonContainer{
@@ -70,5 +71,4 @@ img{
 .button{
     max-height: 150px;
     max-width: 150px;
-    border: 3px solid #d88c9a;
 }

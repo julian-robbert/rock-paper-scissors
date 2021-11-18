@@ -57,11 +57,28 @@ function game(){
         console.log(playRound(computerPlay(), playerSelection.toLowerCase()) + i);
     }
     if (playerWinCount > computerWinCount){
-        return 'that means you won the game!';
+        return 'You won the game!';
     }else if (playerWinCount < computerWinCount){
-        return 'that means you lost the game!';
+        return 'You lost the game!';
     }else{
-        return 'that means the game was a draw!';
+        return 'The game was a draw!';
     }
 }
-console.log(game());
+const resultsContainer = document.querySelector('#resultsContainer');
+const results = document.createElement('div');
+results.style.cssText = 'display: flex; justify-content: center; align-items: center; padding: 20px';
+results.innerHTML = '<h1>You won the game!</h1>';
+results.classList.add('results');
+resultsContainer.appendChild(results);
+
+
+//game();
+/*if (game() === 'You won the game!'){
+    results.innterHTML = '<h1>You won the game!</h1>';
+}else if (game() === 'You lost the game!'){
+    results.innerHTML = '<h1>You lost the game!</h1>';
+}else{
+    results.innerHTML = '<h1>The game was a draw!</h1>';
+}*/
+
+
