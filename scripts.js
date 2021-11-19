@@ -20,8 +20,7 @@ function computerPlay(){
 let playerWinCount = 0;
 let computerWinCount = 0;
 
-//prompt user for rock paper or scissors
-const playerSelection = prompt("Enter rock paper or scissors!");
+
 
 /*
 generate a new computer selection at the start of each round
@@ -29,40 +28,15 @@ return who won each round
 increase counter based on who won
 appends win text into results paragraph
 */
-const computerWinCounterDisplay = document.querySelector('#computerWinCounterDisplay');
-const playerWinCounterDisplay = document.querySelector('#playerWinCounterDisplay');
-
-function playRound(computerSelection, playerSelection){
-    computerSelection = computerPlay();
-    switch (true){
-        case computerSelection === playerSelection:
-            return 'you drew round ';
-        case 
-        (computerSelection === 'rock' && playerSelection === 'scissors') ||
-        (computerSelection === 'paper' && playerSelection === 'rock') ||
-        (computerSelection === 'scissors' && playerSelection === 'paper'):
-            computerWinCount++;
-            computerWinCounterDisplay.append(computerWinCount);
-            return 'you lost round ';
-        case
-        (playerSelection === 'rock' && computerSelection === 'scissors') ||
-        (playerSelection === 'paper' && computerSelection === 'rock') ||
-        (playerSelection === 'scissors' && computerSelection === 'paper'):
-            playerWinCount++;
-            playerWinCounterDisplay.append(playerWinCount);
-            return 'you won round ';
-    }
-}
-playRound(computerSelection, playerSelection);
-
-/*
-call and print playRound 
-compare the counters and see who won the overall game
-*/
 const resultsContainer = document.querySelector('#resultsContainer');
 const results = document.createElement('div');
 results.classList.add('results');
-results.style.cssText = 'display: flex; justify-content: center; align-items: center; padding: 20px';
+results.style.cssText = 'display: flex; justify-content: center; align-items: center;';
+
+const refreshButton = document.createElement('div');
+refreshButton.classList.add('refreshButton');
+refreshButton.innerHTML = '<button style = "width: 200px; height: 50px; background-color: #edbbb4; font-size: 24px; font-weight: bold; border: 1px solid black; border-radius: 10px " type="submit" onClick = "window.location.reload()"";>Play Again!</button>';
+
 function whoWon(){
     if (playerWinCount > computerWinCount){
         results.innerHTML = '<h1>You won the game!</h1>';
@@ -72,23 +46,67 @@ function whoWon(){
         results.innerHTML = '<h1>The game was a draw!</h1>';
     }
 }
-whoWon();
-resultsContainer.appendChild(results);
 
-/*//creates and appends the message at the bottom depending on who won
-const resultsContainer = document.querySelector('#resultsContainer');
-const results = document.createElement('div');
-results.style.cssText = 'display: flex; justify-content: center; align-items: center; padding: 20px';
-game();
-if (game() === 'You won the game!'){
-    results.innerHTML = '<h1>You won the game!</h1>';
-}else if (game() === 'You lost the game!'){
-    results.innerHTML = '<h1>You lost the game!</h1>';
-}else{
-    results.innerHTML = '<h1>The game was a draw!</h1>';
+const computerWinCounterDisplay = document.querySelector('#computerWinCounterDisplay');
+const playerWinCounterDisplay = document.querySelector('#playerWinCounterDisplay');
+const tieCounterDisplay = document.querySelector('#tieCounterDisplay');
+
+function playRound(computerSelection, playerSelection){
+    switch (true){
+        case computerSelection === playerSelection:
+            tieCounterDisplay.append('|');
+            console.log('draw');
+            break;
+        case 
+        (computerSelection === 'rock' && playerSelection === 'scissors') ||
+        (computerSelection === 'paper' && playerSelection === 'rock') ||
+        (computerSelection === 'scissors' && playerSelection === 'paper'):
+            computerWinCount++;
+            computerWinCounterDisplay.append('|');
+            console.log('comp win');
+            break;
+        case
+        (playerSelection === 'rock' && computerSelection === 'scissors') ||
+        (playerSelection === 'paper' && computerSelection === 'rock') ||
+        (playerSelection === 'scissors' && computerSelection === 'paper'):
+            playerWinCount++;
+            playerWinCounterDisplay.append('|');
+            console.log('player win');
+            break;
+    }
+
+    if(playerWinCount === 5 || computerWinCount === 5){
+        whoWon();
+        resultsContainer.appendChild(results);
+        resultsContainer.appendChild(refreshButton);
+        document.getElementById('rockButton').removeEventListener('click', playRock);
+        document.getElementById('paperButton').removeEventListener('click', playPaper);
+        document.getElementById('scissorsButton').removeEventListener('click', playScissors);
+    }
 }
-results.classList.add('results');
-resultsContainer.appendChild(results);*/
+
+function playRock(){
+    computerSelection = computerPlay();
+    playerSelection = 'rock';
+    playRound(computerPlay(), playerSelection);
+}
+
+function playPaper(){
+    computerSelection = computerPlay();
+    playerSelection = 'paper';
+    playRound(computerPlay(), playerSelection);
+}
+
+function playScissors(){
+    computerSelection = computerPlay();
+    playerSelection = 'scissors';
+    playRound(computerPlay(), playerSelection);
+}
+
+
+document.getElementById('rockButton').addEventListener('click', playRock);
+document.getElementById('paperButton').addEventListener('click', playPaper);
+document.getElementById('scissorsButton').addEventListener('click', playScissors);
 
 
 

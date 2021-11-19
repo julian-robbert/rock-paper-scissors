@@ -1,9 +1,5 @@
-div{
-}
-
 body{
     margin: 0;
-    background-color: #cce6f4;
     font-family:'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -26,6 +22,7 @@ img{
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
 }
 
 #winCounter{
@@ -40,6 +37,7 @@ img{
 
 #selectionContainer{
     display: flex;
+    margin-bottom: 40px;
 }
 
 #counterContainer{
@@ -47,10 +45,6 @@ img{
     justify-content: space-evenly;
     flex-grow: 1;
     padding: 25px;
-}
-
-#selectionContainer, #winCounter{
-    background-color: #edbbb4;
 }
 
 #header{
@@ -71,4 +65,12 @@ img{
 .button{
     max-height: 200px;
     max-width: 200px;
+}
+
+#resultsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
