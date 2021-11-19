@@ -1,9 +1,4 @@
-/*
-define variable that is either 1, 2 or 3
-return rock if 1
-return paper if 2
-return scissors if 3
-*/
+//makes computer's choice between R P or S
 function computerPlay(){
     let throwChoice = Math.floor(Math.random()*3) + 1;
     switch (throwChoice){
@@ -20,14 +15,7 @@ function computerPlay(){
 let playerWinCount = 0;
 let computerWinCount = 0;
 
-
-
-/*
-generate a new computer selection at the start of each round
-return who won each round
-increase counter based on who won
-appends win text into results paragraph
-*/
+//pastes a div that says who won, and a button that lets you play again
 const resultsContainer = document.querySelector('#resultsContainer');
 const results = document.createElement('div');
 results.classList.add('results');
@@ -37,6 +25,7 @@ const refreshButton = document.createElement('div');
 refreshButton.classList.add('refreshButton');
 refreshButton.innerHTML = '<button style = "width: 200px; height: 50px; background-color: #edbbb4; font-size: 24px; font-weight: bold; border: 1px solid black; border-radius: 10px " type="submit" onClick = "window.location.reload()"";>Play Again!</button>';
 
+//determines who won and what the results message will say
 function whoWon(){
     if (playerWinCount > computerWinCount){
         results.innerHTML = '<h1>You won the game!</h1>';
@@ -47,10 +36,12 @@ function whoWon(){
     }
 }
 
+//initializing counter displays
 const computerWinCounterDisplay = document.querySelector('#computerWinCounterDisplay');
 const playerWinCounterDisplay = document.querySelector('#playerWinCounterDisplay');
 const tieCounterDisplay = document.querySelector('#tieCounterDisplay');
 
+//plays one round and updates the counters accordingly, calls whoWon once someone gets 5 points
 function playRound(computerSelection, playerSelection){
     switch (true){
         case computerSelection === playerSelection:
@@ -85,6 +76,12 @@ function playRound(computerSelection, playerSelection){
     }
 }
 
+//makes the selection buttons clickable, executes according play function
+document.getElementById('rockButton').addEventListener('click', playRock);
+document.getElementById('paperButton').addEventListener('click', playPaper);
+document.getElementById('scissorsButton').addEventListener('click', playScissors);
+
+//these functions are called when someone clicks either the rock, paper, or scissors buttons
 function playRock(){
     computerSelection = computerPlay();
     playerSelection = 'rock';
@@ -102,13 +99,3 @@ function playScissors(){
     playerSelection = 'scissors';
     playRound(computerPlay(), playerSelection);
 }
-
-
-document.getElementById('rockButton').addEventListener('click', playRock);
-document.getElementById('paperButton').addEventListener('click', playPaper);
-document.getElementById('scissorsButton').addEventListener('click', playScissors);
-
-
-
-
-

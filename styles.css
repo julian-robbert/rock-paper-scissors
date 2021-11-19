@@ -8,6 +8,21 @@ img{
     max-height:100%;
 }
 
+#header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#playerCounter, #computerCounter, #tieCounter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
 #playerCounterImage, #computerCounterImage, #tieCounterImage{
     max-width: 200px;
     max-height: 200px;
@@ -16,13 +31,6 @@ img{
 
 .button:hover{
     box-shadow: 5px 10px 5px #664249;
-}
-
-#playerCounter, #computerCounter, #tieCounter{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
 }
 
 #winCounter{
@@ -45,14 +53,6 @@ img{
     justify-content: space-evenly;
     flex-grow: 1;
     padding: 25px;
-}
-
-#header{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
 }
 
 #buttonContainer{
