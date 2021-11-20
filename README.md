@@ -1,2 +1,2 @@
 # rock-paper-scissors
-First javascript project for the odin project. Uses js to make a rock paper scissors game
+A rock paper scissors game with a simple UI made with HTML CSS and JS
